@@ -10,7 +10,7 @@ class Navbar extends Component {
     return(
         <div className="navbar">
             <Logo />
-            <Navigation />
+            <Navigation auth={this.props.auth} handleLogout={this.props.handleLogout}/>
         </div>
     )
     }
