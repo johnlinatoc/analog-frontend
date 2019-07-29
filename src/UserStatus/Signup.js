@@ -22,22 +22,23 @@ class Signup extends React.Component {
     })
   }
 
-  handleLogin(e){
+  handleSignup(e){
     e.preventDefault()
-    console.log("Got Here")
+    Api.signup(this.state)
+    .then(data => console.log(data))
   }
 
   render(){
     return (
       <div>
-        <form onSubmit={(e)=>{this.handleLogin(e)}}>
-          Username: <input onChange={(e) => this.handleUsernameChange(e)} value={this.state.username} />
-          Password: <input type="password" onChange={(e) => this.handlePasswordChange(e)} value={this.state.password} />
-          <input type='submit' value='login' />
+        <form onSubmit={(e)=>{this.handleSignup(e)}}>
+          New Username: <input onChange={(e) => this.handleUsernameChange(e)} value={this.state.username} />
+          New Password: <input type="password" onChange={(e) => this.handlePasswordChange(e)} value={this.state.password} />
+          <input type='submit' value='Signup' />
         </form>
       </div>
     );
   }
 }
 
-export default Login;
+export default Signup;

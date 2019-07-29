@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import './App.css';
 import Login from './UserStatus/Login'
+import Signup from './UserStatus/Signup'
 import { Route, Switch } from 'react-router-dom';
 import BoardgameContainer from './BoardgameContainer/BoardgameContainer'
 import Navbar from './Navbar/Navbar'
@@ -52,6 +53,10 @@ class App extends Component {
       }} />
       <Route exact path="/" render={() => {
         return <BoardgameContainer boardgames={this.state.boardgames}/>
+      }} />
+      <Route path="/signup" render={(routeProps) => {
+        return <Signup {...routeProps} 
+        handleLogin={(user) => {this.handleLogin(user)}}/>
       }} />
     </div>
      );
