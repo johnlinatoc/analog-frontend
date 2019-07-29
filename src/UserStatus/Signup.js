@@ -1,7 +1,7 @@
 import React from 'react';
 import Api from '../services/api'
 
-class Login extends React.Component {
+class Signup extends React.Component {
   constructor(props){
     super(props)
     this.state = {
@@ -24,26 +24,15 @@ class Login extends React.Component {
 
   handleLogin(e){
     e.preventDefault()
-    Api.login(this.state)
-      .then(data => {
-        if (data.error){
-          this.setState({
-            error: true
-          })
-        } else {
-          this.props.handleLogin(data)
-          this.props.history.push(`/profile`)
-        }
-      })
+    console.log("Got Here")
   }
 
   render(){
     return (
       <div>
-        {this.state.error ? <h4>Invalid username or Password</h4> : null}
         <form onSubmit={(e)=>{this.handleLogin(e)}}>
-          <input onChange={(e) => this.handleUsernameChange(e)} value={this.state.username} />
-          <input onChange={(e) => this.handlePasswordChange(e)} value={this.state.password} />
+          Username: <input onChange={(e) => this.handleUsernameChange(e)} value={this.state.username} />
+          Password: <input type="password" onChange={(e) => this.handlePasswordChange(e)} value={this.state.password} />
           <input type='submit' value='login' />
         </form>
       </div>

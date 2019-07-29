@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import './App.css';
-import Login from './Login/Login'
+import Login from './UserStatus/Login'
 import { Route, Switch } from 'react-router-dom';
 import BoardgameContainer from './BoardgameContainer/BoardgameContainer'
 import Navbar from './Navbar/Navbar'
@@ -50,8 +50,9 @@ class App extends Component {
         user={this.state.auth}
         handleLogin={(user) => {this.handleLogin(user)}}/>
       }} />
-      {/* {this.state.auth.user.id ? <Profile user={this.state.auth}/> : null} */}
-      {/* <BoardgameContainer boardgames={this.state.boardgames}/> */}
+      <Route exact path="/" render={() => {
+        return <BoardgameContainer boardgames={this.state.boardgames}/>
+      }} />
     </div>
      );
   }

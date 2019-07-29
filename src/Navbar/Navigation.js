@@ -18,7 +18,7 @@ class Navigation extends Component {
           {this.props.auth.user.id ? 
             <a onClick={() => {
               this.props.handleLogout()
-              this.props.history.push('/login')
+              this.props.history.push('/')
             }}>
             <div >Log out</div>
           </a>
