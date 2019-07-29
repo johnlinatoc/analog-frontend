@@ -32,8 +32,7 @@ class Login extends React.Component {
           })
         } else {
           this.props.handleLogin(data)
-          console.log(data)
-          this.props.history.push(`/${data.username}`)
+          this.props.history.push(`/`)
         }
       })
   }

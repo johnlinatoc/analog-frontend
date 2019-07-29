@@ -22,5 +22,18 @@ export default {
 
     return fetch('http://localhost:3000/api/v1/current_user', reqObj)
       .then(res => res.json())
+  },
+
+  updateUser: (username) => {
+    const reqObj = {
+      method: 'PATCH',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(username)
+    }
+  
+    return fetch(`http://localhost:3000/api/v1/current_user/${username.userID}`, reqObj)
+      .then(res => res.json())
   }
 }

@@ -4,6 +4,7 @@ import Login from './Login/Login'
 import { Route, Switch } from 'react-router-dom';
 import BoardgameContainer from './BoardgameContainer/BoardgameContainer'
 import Navbar from './Navbar/Navbar'
+import Profile from './Profile/Profile'
 
 class App extends Component {
   constructor(props) {
@@ -43,7 +44,9 @@ class App extends Component {
       <Route path="/login" render={(routeProps) => {
         return <Login {...routeProps} handleLogin={(user) => {this.handleLogin(user)}}/>
       }} />
-      <BoardgameContainer boardgames={this.state.boardgames}/>
+      {this.state.auth.user.id ? <Profile user={this.state.auth}/> : null}
+      
+      {/* <BoardgameContainer boardgames={this.state.boardgames}/> */}
     </div>
      );
   }
