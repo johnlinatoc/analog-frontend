@@ -1,6 +1,6 @@
 import React from 'react';
 import Api from '../services/api'
-
+import {Link, withRouter} from 'react-router-dom';
 class Login extends React.Component {
   constructor(props){
     super(props)
@@ -46,6 +46,10 @@ class Login extends React.Component {
           Password: <input type="password" onChange={(e) => this.handlePasswordChange(e)} value={this.state.password} />
           <input type='submit' value='login' />
         </form>
+        <h2>Create a New Account?</h2>
+        <Link to="/signup" >
+            <div >Sign Up</div>
+        </Link>
       </div>
     );
   }

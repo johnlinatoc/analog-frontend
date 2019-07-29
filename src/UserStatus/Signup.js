@@ -24,8 +24,20 @@ class Signup extends React.Component {
 
   handleSignup(e){
     e.preventDefault()
-    Api.signup(this.state)
-    .then(data => console.log(data))
+    Api.signup(this.state).then(
+      Api.login(this.state)
+      .then(data => {
+        if (data.error){
+          this.setState({
+            error: true
+          })
+        } else {
+          this.props.handleLogin(data)
+          this.props.history.push(`/profile`)
+        }
+      })
+    )
+    
   }
 
   render(){
