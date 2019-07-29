@@ -42,10 +42,15 @@ class App extends Component {
     <div>
       <Navbar auth={this.state.auth} handleLogout={()=> this.handleLogout()}/>
       <Route path="/login" render={(routeProps) => {
-        return <Login {...routeProps} handleLogin={(user) => {this.handleLogin(user)}}/>
+        return <Login {...routeProps} 
+        handleLogin={(user) => {this.handleLogin(user)}}/>
       }} />
-      {this.state.auth.user.id ? <Profile user={this.state.auth}/> : null}
-      
+      <Route path="/profile" render={(routeProps) => {
+        return <Profile {...routeProps} 
+        user={this.state.auth}
+        handleLogin={(user) => {this.handleLogin(user)}}/>
+      }} />
+      {/* {this.state.auth.user.id ? <Profile user={this.state.auth}/> : null} */}
       {/* <BoardgameContainer boardgames={this.state.boardgames}/> */}
     </div>
      );

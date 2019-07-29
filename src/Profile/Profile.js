@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import {Link, withRouter} from 'react-router-dom';
+import {Link, withRouter, Redirect} from 'react-router-dom';
 import Api from '../services/api'
 class Profile extends Component {
     constructor(props){
@@ -10,6 +10,30 @@ class Profile extends Component {
           error: false
         }
     }
+
+    componentDidMount(){
+      const token = localStorage.getItem('token')
+      if(!token) {
+        this.props.history.push('/login')
+      }
+      else {
+        Api.currentUser(token)
+          .then(data => {
+
+            if(data.error){
+              this.props.history.push('/login')
+            } else {
+              this.props.handleLogin(data)
+            }
+          })
+      }
+    }
+
+
+
+
+
+
     handleUsernameChange(e){
         this.setState({
             username: e.target.value
@@ -18,11 +42,18 @@ class Profile extends Component {
 
     handleUsernameUpdate(e){
         e.preventDefault()
-        console.log("make patch request")
         Api.updateUser(this.state)
         .then(data => console.log(data))
     }
+
+    handleUserDelete(){
+      Api.deleteUser(this.state)
+      .then(alert("User Deleted"))
+      this.props.history.push('/login')
+    }
+
     render(){
+      console.log(this.props.user)
     return(
       <div>
         <h3>Username: {this.props.user.user.username}</h3>
@@ -30,6 +61,7 @@ class Profile extends Component {
           <input onChange={(e) => this.handleUsernameChange(e)} value={this.state.username} />
           <input type='submit' value='Update Username' />
         </form>
+        <input type='button' value='Delete Username' onClick={() => this.handleUserDelete()}/>
       </div>
     )
     }

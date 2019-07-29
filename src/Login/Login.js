@@ -32,7 +32,7 @@ class Login extends React.Component {
           })
         } else {
           this.props.handleLogin(data)
-          this.props.history.push(`/`)
+          this.props.history.push(`/profile`)
         }
       })
   }
