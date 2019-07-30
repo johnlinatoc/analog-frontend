@@ -6,7 +6,7 @@ import { Route, Switch } from 'react-router-dom';
 import BoardgameContainer from './BoardgameContainer/BoardgameContainer'
 import Navbar from './Navbar/Navbar'
 import Profile from './Profile/Profile'
-import CartContainer from './CartContainer/CartContainer'
+import CartContainer from './CheckoutContainer/CartContainer'
 import HeaderWidget from './HeaderContainer/HeaderWidget'
 import Success from './CheckoutContainer/Cart/Success'
 
@@ -88,7 +88,7 @@ class App extends Component {
     return ( 
     <div>
       <Navbar auth={this.state.auth} handleLogout={()=> this.handleLogout()} cart={this.state.cart} boardgames={this.state.boardgames}/>
-      <HeaderWidget />
+      
       <Route path="/login" render={(routeProps) => {
         return <Login {...routeProps}
         handleLogin={(user) => {this.handleLogin(user)}}/>
@@ -99,7 +99,10 @@ class App extends Component {
         handleLogin={(user) => {this.handleLogin(user)}}/>
       }} />
       <Route exact path="/" render={() => {
-        return <BoardgameContainer boardgames={this.state.boardgames} addToCart={(id) => {this.addToCart(id)}}/>
+        return <div>
+            <HeaderWidget />
+            <BoardgameContainer boardgames={this.state.boardgames} addToCart={(id) => {this.addToCart(id)}}/>
+          </div>
       }} />
       <Route path="/signup" render={(routeProps) => {
         return <Signup {...routeProps}
