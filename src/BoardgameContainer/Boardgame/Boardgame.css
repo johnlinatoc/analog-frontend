@@ -30,11 +30,12 @@
 }
 
 .boardgame_card img {
-  /* height: 100%; */
   width: 12rem;
-  margin-left: auto;
-  margin-right: auto;
-  /* width: 50%; */
+  margin: 0 auto;
+  padding-top: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center
 }
 
 .pagination {
@@ -51,9 +52,15 @@
   top: -10px;
   left: -81px;
   position: relative;
+  opacity: 0;
 }
 .page-forward {
   top: -11px;
   right: 74px;
   position: relative;
+  opacity: 0;
+}
+
+.info-container{
+  text-align: center;
 }

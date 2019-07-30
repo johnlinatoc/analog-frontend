@@ -14,20 +14,26 @@ export default class BoardgameContainer extends Component {
     }
   }
 
-// spliceFour = () => {
-// const allBoardgames = this.state.boardgames
-// const lastNineBoardgames = allBoardgames.splice(0,9)
-// this.setState({ lastNineBoardgames: lastNineBoardgames })
-// }
-
   pageForward = (e) => {
     e.preventDefault()
     let start = this.state.page;
-    start += 1
-    this.setState({
-      page: start
-    })
-    console.log('working')
+    if (start <= 8) {
+      start += 1
+      this.setState({
+        page: start
+      })
+    }
+  }
+
+  pageBack = (e) => {
+    e.preventDefault()
+    let start = this.state.page;
+    if (start >= 1){
+      start -= 1
+      this.setState({
+        page: start
+      })
+    } else {return null}
   }
 
   render() {
@@ -41,8 +47,7 @@ export default class BoardgameContainer extends Component {
               })}
               <div className='pagination'>
                 <img src={arrows} className="arrows"/>
-
-                <a className="page-back"> left </a>
+                <a onClick={(e)=>this.pageBack(e)} className="page-back"> left </a>
                 <a onClick={(e)=>this.pageForward(e)} className="page-forward"> right </a>
               </div>
           </div>

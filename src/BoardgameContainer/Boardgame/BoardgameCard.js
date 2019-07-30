@@ -13,9 +13,8 @@ export default class BoardgameCard extends Component {
           </div>
           <div className='info-container'>
             <h3>{boardgame.name}</h3>
-            <p>
-              <span>{boardgame.price}</span>
-            </p>
+            <span>${boardgame.price}</span>
+            <br/><br/>
             <button onClick={()=> this.props.addToCart(boardgame.id)}>Add to Cart</button>
           </div>
         </div>
