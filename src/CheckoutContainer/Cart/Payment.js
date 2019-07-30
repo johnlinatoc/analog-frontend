@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Api from '../../services/api'
-
-export default class Payment extends Component {
+import {withRouter} from 'react-router-dom';
+class Payment extends Component {
     constructor(props){
         super(props)
         this.state = {
@@ -27,21 +27,21 @@ export default class Payment extends Component {
     })
     }  
 
-
     handleCheckout(e){
         e.preventDefault()
         if(this.state.cardNumber.length < 1) return
         const card = Api.validator(this.state.cardNumber)
-        this.setState({
-            valid: card
-        })
+        if(card == "VISA" || card == "AMERICAN EXPRESS" || card == "MASTERCARD" || card == "JCB" || card == "DISCOVER" || card == "DINERS CLUB"){
+            this.props.history.push('/success')
+        }else{
+            alert("Your credit card information is incorrect")
+        }
     }
 
 
 
     render() { 
 
-   
         return ( 
         <div>
             <h3>Payment Info</h3>
@@ -52,6 +52,8 @@ export default class Payment extends Component {
             <input type='submit' value='checkout' />
         </form>
         </div>
-         );
+        );
     }
 }
+
+export default withRouter(Payment)

@@ -6,6 +6,7 @@ import { Route, Switch } from 'react-router-dom';
 import BoardgameContainer from './BoardgameContainer/BoardgameContainer'
 import Navbar from './Navbar/Navbar'
 import Profile from './Profile/Profile'
+import Success from './CheckoutContainer/Cart/Success'
 import CartContainer from './CheckoutContainer/CartContainer'
 class App extends Component {
   constructor(props) {
@@ -101,10 +102,12 @@ class App extends Component {
         return <Signup {...routeProps}
         handleLogin={(user) => {this.handleLogin(user)}}/>
       }} />
-      <Route path="/cart" render={() => {
+      <Route path="/cart" render={(routeProps) => {
         return <CartContainer boardgames={this.state.boardgames} cart={this.state.cart} addToCart={(id) => {this.addToCart(id)}} subtractFromCart={(id) => {this.subtractFromCart(id)}} removeFromCart={(id) => {this.removeFromCart(id)}}
-        checkout={this.checkout}
-        />
+        checkout={this.checkout} {...routeProps}/>
+      }} />
+      <Route path="/success" render={() => {
+        return <Success />
       }} />
     </div>
      );
