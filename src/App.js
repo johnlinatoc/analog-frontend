@@ -6,8 +6,10 @@ import { Route, Switch } from 'react-router-dom';
 import BoardgameContainer from './BoardgameContainer/BoardgameContainer'
 import Navbar from './Navbar/Navbar'
 import Profile from './Profile/Profile'
+import CartContainer from './CartContainer/CartContainer'
+import HeaderWidget from './HeaderContainer/HeaderWidget'
 import Success from './CheckoutContainer/Cart/Success'
-import CartContainer from './CheckoutContainer/CartContainer'
+
 class App extends Component {
   constructor(props) {
     super(props);
@@ -17,7 +19,6 @@ class App extends Component {
       cart: []
      }
   }
-
 
   componentDidMount(){
     fetch('http://localhost:3000/api/v1/boardgames')
@@ -79,6 +80,7 @@ class App extends Component {
       cart: filteredCart
     })
   }
+
   checkout = () =>{
     console.log("Checking Out")
   }
@@ -86,6 +88,7 @@ class App extends Component {
     return ( 
     <div>
       <Navbar auth={this.state.auth} handleLogout={()=> this.handleLogout()} cart={this.state.cart} boardgames={this.state.boardgames}/>
+      <HeaderWidget />
       <Route path="/login" render={(routeProps) => {
         return <Login {...routeProps}
         handleLogin={(user) => {this.handleLogin(user)}}/>

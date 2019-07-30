@@ -24,6 +24,43 @@
   margin: 0;
 }
 
+.boardgame_card .img-container {
+  width: 100%;
+  height: 70%;
+}
+
 .boardgame_card img {
-  width: 12rem
+  width: 12rem;
+  margin: 0 auto;
+  padding-top: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center
+}
+
+.pagination {
+  left: 25rem;
+  position: relative;
+}
+
+.arrows {
+  width: 89px;
+  height: 32px;
+}
+
+.page-back {
+  top: -10px;
+  left: -81px;
+  position: relative;
+  opacity: 0;
+}
+.page-forward {
+  top: -11px;
+  right: 74px;
+  position: relative;
+  opacity: 0;
+}
+
+.info-container{
+  text-align: center;
 }
