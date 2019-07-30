@@ -17,6 +17,7 @@ class App extends Component {
      }
   }
 
+
   componentDidMount(){
     fetch('http://localhost:3000/api/v1/boardgames')
     .then(resp => resp.json())
@@ -39,16 +40,20 @@ class App extends Component {
     localStorage.removeItem('token')
   }
 
-
-  addToCart = (id) => {
-    const prevCart = this.state.cart
-    const game = this.state.boardgames.find(boardgame => {
-      return boardgame.id == id
-    })
+  addToCart = (boardgameId) => {
+    let activeCart = this.state.cart
+    const game = activeCart.find(boardgame => {return boardgame.id == boardgameId})
+    if (game){
+      activeCart.map(boardgame => {
+        if (boardgame.id == boardgameId){return boardgame.quantity += 1}
+      })
+    } else {
+      activeCart.push({id: boardgameId, quantity: 1})
+    }
+    
     this.setState({
-      cart: [...prevCart, game]
+      cart: activeCart
     })
-    console.log(this.state.cart)
   }
 
   render() { 
