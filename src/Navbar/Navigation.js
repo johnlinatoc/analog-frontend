@@ -39,7 +39,9 @@ class Navigation extends Component {
         }
         </div>
         <div>
+        <Link to="/cart" >
           <img className="cart" src={cart} style={{width: '30px'}}/>
+        </Link>
           <img className="search" src={search} style={{width: '30px'}}/>
         </div>
       </div>
