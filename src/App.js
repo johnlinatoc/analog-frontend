@@ -6,7 +6,7 @@ import { Route, Switch } from 'react-router-dom';
 import BoardgameContainer from './BoardgameContainer/BoardgameContainer'
 import Navbar from './Navbar/Navbar'
 import Profile from './Profile/Profile'
-import CartContainer from './CartContainer/CartContainer'
+import CartContainer from './CheckoutContainer/CartContainer'
 class App extends Component {
   constructor(props) {
     super(props);
@@ -78,7 +78,9 @@ class App extends Component {
       cart: filteredCart
     })
   }
-
+  checkout = () =>{
+    console.log("Checking Out")
+  }
   render() { 
     return ( 
     <div>
@@ -100,7 +102,9 @@ class App extends Component {
         handleLogin={(user) => {this.handleLogin(user)}}/>
       }} />
       <Route path="/cart" render={() => {
-        return <CartContainer boardgames={this.state.boardgames} cart={this.state.cart} addToCart={(id) => {this.addToCart(id)}} subtractFromCart={(id) => {this.subtractFromCart(id)}} removeFromCart={(id) => {this.removeFromCart(id)}}/>
+        return <CartContainer boardgames={this.state.boardgames} cart={this.state.cart} addToCart={(id) => {this.addToCart(id)}} subtractFromCart={(id) => {this.subtractFromCart(id)}} removeFromCart={(id) => {this.removeFromCart(id)}}
+        checkout={this.checkout}
+        />
       }} />
     </div>
      );
