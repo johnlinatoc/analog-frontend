@@ -4,7 +4,7 @@ import React, { Component } from 'react';
 export default class Cart extends Component {
     
     render() { 
-      console.log(this.props.boardgame)
+
       const {boardgame} = this.props
         return ( 
             <div>
@@ -15,6 +15,7 @@ export default class Cart extends Component {
              </p>
              <button onClick={()=> this.props.subtractFromCart(boardgame.id)}>-</button>
              <button onClick={()=> this.props.addToCart(boardgame.id)}>+</button>
+             <button onClick={()=> this.props.removeFromCart(boardgame.id)}>X</button>
          </div>
          );
     }

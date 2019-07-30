@@ -66,6 +66,19 @@ class App extends Component {
     })
   }
 
+
+  removeFromCart = (boardgameId) => {
+    let activeCart = this.state.cart
+    const filteredCart = activeCart.filter(boardgame => {
+      if (!boardgame.id == boardgameId){
+        return boardgame
+      }
+    })
+    this.setState({
+      cart: filteredCart
+    })
+  }
+
   render() { 
     return ( 
     <div>
@@ -87,7 +100,7 @@ class App extends Component {
         handleLogin={(user) => {this.handleLogin(user)}}/>
       }} />
       <Route path="/cart" render={() => {
-        return <CartContainer boardgames={this.state.boardgames} cart={this.state.cart} addToCart={(id) => {this.addToCart(id)}} subtractFromCart={(id) => {this.subtractFromCart(id)}}/>
+        return <CartContainer boardgames={this.state.boardgames} cart={this.state.cart} addToCart={(id) => {this.addToCart(id)}} subtractFromCart={(id) => {this.subtractFromCart(id)}} removeFromCart={(id) => {this.removeFromCart(id)}}/>
       }} />
     </div>
      );
