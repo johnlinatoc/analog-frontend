@@ -6,13 +6,14 @@ import { Route, Switch } from 'react-router-dom';
 import BoardgameContainer from './BoardgameContainer/BoardgameContainer'
 import Navbar from './Navbar/Navbar'
 import Profile from './Profile/Profile'
-
+import CartContainer from './CartContainer/CartContainer'
 class App extends Component {
   constructor(props) {
     super(props);
     this.state = { 
       boardgames: [],
-      auth: { user: {} }
+      auth: { user: {} },
+      cart: []
      }
   }
 
@@ -38,10 +39,21 @@ class App extends Component {
     localStorage.removeItem('token')
   }
 
+  addToCart = (id) => {
+    const prevCart = this.state.cart
+    const game = this.state.boardgames.find(boardgame => {
+      return boardgame.id == id
+    })
+    this.setState({
+      cart: [...prevCart, game]
+    })
+    console.log(this.state.cart)
+  }
+
   render() { 
     return ( 
     <div>
-      <Navbar auth={this.state.auth} handleLogout={()=> this.handleLogout()}/>
+      <Navbar auth={this.state.auth} handleLogout={()=> this.handleLogout()} cart={this.state.cart}/>
       <Route path="/login" render={(routeProps) => {
         return <Login {...routeProps} 
         handleLogin={(user) => {this.handleLogin(user)}}/>
@@ -52,11 +64,14 @@ class App extends Component {
         handleLogin={(user) => {this.handleLogin(user)}}/>
       }} />
       <Route exact path="/" render={() => {
-        return <BoardgameContainer boardgames={this.state.boardgames}/>
+        return <BoardgameContainer boardgames={this.state.boardgames} addToCart={(id) => {this.addToCart(id)}}/>
       }} />
       <Route path="/signup" render={(routeProps) => {
         return <Signup {...routeProps} 
         handleLogin={(user) => {this.handleLogin(user)}}/>
+      }} />
+      <Route path="/cart" render={() => {
+        return <CartContainer boardgames={this.state.boardgames} cart={this.state.cart} addToCart={(id) => {this.addToCart(id)}}/>
       }} />
     </div>
      );
