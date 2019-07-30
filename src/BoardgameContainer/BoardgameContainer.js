@@ -10,7 +10,7 @@ export default class BoardgameContainer extends Component {
         return ( 
             <div>
                 {boardgames.map( boardgame => {
-                    return <BoardgameCard boardgame={boardgame}/>
+                    return <BoardgameCard boardgame={boardgame} addToCart={this.props.addToCart}/>
                 })}
             </div>
          );
