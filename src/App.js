@@ -8,6 +8,7 @@ import Navbar from './Navbar/Navbar'
 import Profile from './Profile/Profile'
 import CartContainer from './CartContainer/CartContainer'
 import HeaderWidget from './HeaderContainer/HeaderWidget'
+import Success from './CheckoutContainer/Cart/Success'
 
 class App extends Component {
   constructor(props) {
@@ -80,8 +81,11 @@ class App extends Component {
     })
   }
 
-  render() {
-    return (
+  checkout = () =>{
+    console.log("Checking Out")
+  }
+  render() { 
+    return ( 
     <div>
       <Navbar auth={this.state.auth} handleLogout={()=> this.handleLogout()} cart={this.state.cart} boardgames={this.state.boardgames}/>
       <HeaderWidget />
@@ -101,8 +105,12 @@ class App extends Component {
         return <Signup {...routeProps}
         handleLogin={(user) => {this.handleLogin(user)}}/>
       }} />
-      <Route path="/cart" render={() => {
-        return <CartContainer boardgames={this.state.boardgames} cart={this.state.cart} addToCart={(id) => {this.addToCart(id)}} subtractFromCart={(id) => {this.subtractFromCart(id)}} removeFromCart={(id) => {this.removeFromCart(id)}}/>
+      <Route path="/cart" render={(routeProps) => {
+        return <CartContainer boardgames={this.state.boardgames} cart={this.state.cart} addToCart={(id) => {this.addToCart(id)}} subtractFromCart={(id) => {this.subtractFromCart(id)}} removeFromCart={(id) => {this.removeFromCart(id)}}
+        checkout={this.checkout} {...routeProps}/>
+      }} />
+      <Route path="/success" render={() => {
+        return <Success />
       }} />
     </div>
      );

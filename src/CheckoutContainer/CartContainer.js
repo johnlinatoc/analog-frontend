@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Cart from './Cart/Cart'
-
+import Payment from './Cart/Payment'
 export default class CartContainer extends Component {
     
     render() { 
@@ -14,6 +14,8 @@ export default class CartContainer extends Component {
                 <p>
                     <span>Total Cost: {totalCost}</span> 
                 </p>
+                <button onClick={()=> this.props.checkout()}>Checkout</button>
+                <Payment/>
             </div>
          );
     }
