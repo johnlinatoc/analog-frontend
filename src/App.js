@@ -10,7 +10,7 @@ import CartContainer from './CartContainer/CartContainer'
 class App extends Component {
   constructor(props) {
     super(props);
-    this.state = { 
+    this.state = {
       boardgames: [],
       auth: { user: {} },
       cart: []
@@ -39,6 +39,7 @@ class App extends Component {
     localStorage.removeItem('token')
   }
 
+
   addToCart = (id) => {
     const prevCart = this.state.cart
     const game = this.state.boardgames.find(boardgame => {
@@ -53,13 +54,13 @@ class App extends Component {
   render() { 
     return ( 
     <div>
-      <Navbar auth={this.state.auth} handleLogout={()=> this.handleLogout()} cart={this.state.cart}/>
+      <Navbar auth={this.state.auth} handleLogout={()=> this.handleLogout()} cart={this.state.cart} boardgames={this.state.boardgames}/>
       <Route path="/login" render={(routeProps) => {
-        return <Login {...routeProps} 
+        return <Login {...routeProps}
         handleLogin={(user) => {this.handleLogin(user)}}/>
       }} />
       <Route path="/profile" render={(routeProps) => {
-        return <Profile {...routeProps} 
+        return <Profile {...routeProps}
         user={this.state.auth}
         handleLogin={(user) => {this.handleLogin(user)}}/>
       }} />
@@ -67,7 +68,7 @@ class App extends Component {
         return <BoardgameContainer boardgames={this.state.boardgames} addToCart={(id) => {this.addToCart(id)}}/>
       }} />
       <Route path="/signup" render={(routeProps) => {
-        return <Signup {...routeProps} 
+        return <Signup {...routeProps}
         handleLogin={(user) => {this.handleLogin(user)}}/>
       }} />
       <Route path="/cart" render={() => {
@@ -77,6 +78,5 @@ class App extends Component {
      );
   }
 }
- 
-export default App;
 
+export default App;
