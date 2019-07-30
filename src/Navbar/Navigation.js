@@ -10,12 +10,22 @@ class Navigation extends Component {
     return(
       <div>
         <div className="navigation">
-          <a>Home</a>
-          <a>Boardgames</a>
-          <a>New Arrivals</a>
-          <a>Accessories</a>
-          <a>Contact</a>
-          {this.props.auth.user.id ? 
+          <Link to="/" >
+            <div >Home</div>
+          </Link>
+          <Link to="#" >
+            <div >Boardgames</div>
+          </Link>
+          <Link to="#" >
+            <div >New Arrivals</div>
+          </Link>
+          <Link to="#" >
+            <div >Accessories</div>
+          </Link>
+          <Link to="#" >
+            <div >Contact</div>
+          </Link>
+          {this.props.auth.user.id ?
             <a onClick={() => {
               this.props.handleLogout()
               this.props.history.push('/')

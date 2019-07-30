@@ -10,7 +10,7 @@ import Profile from './Profile/Profile'
 class App extends Component {
   constructor(props) {
     super(props);
-    this.state = { 
+    this.state = {
       boardgames: [],
       auth: { user: {} }
      }
@@ -38,16 +38,16 @@ class App extends Component {
     localStorage.removeItem('token')
   }
 
-  render() { 
-    return ( 
+  render() {
+    return (
     <div>
-      <Navbar auth={this.state.auth} handleLogout={()=> this.handleLogout()}/>
+      <Navbar auth={this.state.auth} handleLogout={()=> this.handleLogout()} boardgames={this.state.boardgames}/>
       <Route path="/login" render={(routeProps) => {
-        return <Login {...routeProps} 
+        return <Login {...routeProps}
         handleLogin={(user) => {this.handleLogin(user)}}/>
       }} />
       <Route path="/profile" render={(routeProps) => {
-        return <Profile {...routeProps} 
+        return <Profile {...routeProps}
         user={this.state.auth}
         handleLogin={(user) => {this.handleLogin(user)}}/>
       }} />
@@ -55,13 +55,12 @@ class App extends Component {
         return <BoardgameContainer boardgames={this.state.boardgames}/>
       }} />
       <Route path="/signup" render={(routeProps) => {
-        return <Signup {...routeProps} 
+        return <Signup {...routeProps}
         handleLogin={(user) => {this.handleLogin(user)}}/>
       }} />
     </div>
      );
   }
 }
- 
-export default App;
 
+export default App;

@@ -12,6 +12,9 @@
   top: 27px;
   position: relative;
 }
+.logo-container a{
+  text-decoration: none;
+}
 
 .title {
     /* font-family: HelveticaNeueCyr; */
