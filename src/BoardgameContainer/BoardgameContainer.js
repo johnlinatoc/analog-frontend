@@ -4,11 +4,12 @@ import BoardgameCard from './Boardgame/BoardgameCard'
 
 
 export default class BoardgameContainer extends Component {
- 
-    render() { 
-        const boardgames = this.props.boardgames
-        return ( 
-            <div>
+
+    render() {
+        let boardgames = this.props.boardgames
+        boardgames = boardgames.slice(0, 9)
+        return (
+            <div className="boardgame_container">
                 {boardgames.map( boardgame => {
                     return <BoardgameCard boardgame={boardgame} addToCart={this.props.addToCart}/>
                 })}
