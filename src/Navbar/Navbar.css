@@ -5,6 +5,8 @@
   left: 0px;
   top: 0px;
   box-shadow: -16px -10px 15px black;
+  position: sticky;
+  background: white
 }
 
 .logo-container {

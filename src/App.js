@@ -96,7 +96,7 @@ class App extends Component {
         handleLogin={(user) => {this.handleLogin(user)}}/>
       }} />
       <Route exact path="/" render={() => {
-        return <div style={{border: '2px solid green', width: '100%', height: '100em'}} >
+        return <div >
             <HeaderWidget />
             <BoardgameContainer boardgames={this.state.boardgames} addToCart={(id) => {this.addToCart(id)}}/>
           </div>
