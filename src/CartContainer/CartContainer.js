@@ -8,7 +8,7 @@ export default class CartContainer extends Component {
         return ( 
             <div>
                 {cartItems.map( boardgame => {
-                    return <Cart boardgame={boardgame} addToCart={this.props.addToCart}/>
+                    return <Cart boardgame={boardgame} addToCart={this.props.addToCart} subtractFromCart={this.props.subtractFromCart}/>
                 })}
             </div>
          );

@@ -56,6 +56,16 @@ class App extends Component {
     })
   }
 
+  subtractFromCart = (boardgameId) => {
+    let activeCart = this.state.cart
+    activeCart.map(boardgame => {
+      if (boardgame.id == boardgameId && boardgame.quantity > 1){return boardgame.quantity -= 1}
+    })
+    this.setState({
+      cart: activeCart
+    })
+  }
+
   render() { 
     return ( 
     <div>
@@ -77,7 +87,7 @@ class App extends Component {
         handleLogin={(user) => {this.handleLogin(user)}}/>
       }} />
       <Route path="/cart" render={() => {
-        return <CartContainer boardgames={this.state.boardgames} cart={this.state.cart} addToCart={(id) => {this.addToCart(id)}}/>
+        return <CartContainer boardgames={this.state.boardgames} cart={this.state.cart} addToCart={(id) => {this.addToCart(id)}} subtractFromCart={(id) => {this.subtractFromCart(id)}}/>
       }} />
     </div>
      );
