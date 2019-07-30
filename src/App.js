@@ -43,14 +43,14 @@ class App extends Component {
   addToCart = (boardgameId) => {
     let activeCart = this.state.cart
     const game = activeCart.find(boardgame => {return boardgame.id == boardgameId})
+    const gameInfo = this.state.boardgames.find(boardgame => {return boardgame.id == boardgameId})
     if (game){
       activeCart.map(boardgame => {
         if (boardgame.id == boardgameId){return boardgame.quantity += 1}
       })
     } else {
-      activeCart.push({id: boardgameId, quantity: 1})
+      activeCart.push({id: boardgameId, name: gameInfo.name, image: gameInfo.image, price: gameInfo.price, quantity: 1})
     }
-    
     this.setState({
       cart: activeCart
     })
