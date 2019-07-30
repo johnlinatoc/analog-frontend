@@ -1,0 +1,41 @@
+.cart-container {
+  width: 730px;
+  height: 600px;
+  margin-top: 120px;
+  margin-left: 130px;
+  border: solid 1px black;
+}
+
+.title-container {
+  width: 454px;
+  height: 60px;
+  border: solid 1px black;
+}
+
+.bag-container {
+  width: 730px;
+  height: 360px;
+  border: solid 1px black;
+}
+
+.total-container {
+  width: 243px;
+  height: 114px;
+  float: right;
+}
+
+.continue-button {
+  width: 297px;
+  height: 56px;
+  top: 75px;
+  left: 0px;
+  /* bottom: 0px; */
+  left: 0px;
+  border: solid 1px black;
+  display: inline-block;
+  position: relative;
+}
+
+.continue-button img {
+  width: 100%
+}
