@@ -17,6 +17,7 @@ class App extends Component {
      }
   }
 
+
   componentDidMount(){
     fetch('http://localhost:3000/api/v1/boardgames')
     .then(resp => resp.json())
@@ -39,16 +40,43 @@ class App extends Component {
     localStorage.removeItem('token')
   }
 
+  addToCart = (boardgameId) => {
+    let activeCart = this.state.cart
+    const game = activeCart.find(boardgame => {return boardgame.id == boardgameId})
+    const gameInfo = this.state.boardgames.find(boardgame => {return boardgame.id == boardgameId})
+    if (game){
+      activeCart.map(boardgame => {
+        if (boardgame.id == boardgameId){return boardgame.quantity += 1}
+      })
+    } else {
+      activeCart.push({id: boardgameId, name: gameInfo.name, image: gameInfo.image, price: gameInfo.price, quantity: 1})
+    }
+    this.setState({
+      cart: activeCart
+    })
+  }
 
-  addToCart = (id) => {
-    const prevCart = this.state.cart
-    const game = this.state.boardgames.find(boardgame => {
-      return boardgame.id == id
+  subtractFromCart = (boardgameId) => {
+    let activeCart = this.state.cart
+    activeCart.map(boardgame => {
+      if (boardgame.id == boardgameId && boardgame.quantity > 1){return boardgame.quantity -= 1}
     })
     this.setState({
-      cart: [...prevCart, game]
+      cart: activeCart
     })
-    console.log(this.state.cart)
+  }
+
+
+  removeFromCart = (boardgameId) => {
+    let activeCart = this.state.cart
+    const filteredCart = activeCart.filter(boardgame => {
+      if (!boardgame.id == boardgameId){
+        return boardgame
+      }
+    })
+    this.setState({
+      cart: filteredCart
+    })
   }
 
   render() { 
@@ -72,7 +100,7 @@ class App extends Component {
         handleLogin={(user) => {this.handleLogin(user)}}/>
       }} />
       <Route path="/cart" render={() => {
-        return <CartContainer boardgames={this.state.boardgames} cart={this.state.cart} addToCart={(id) => {this.addToCart(id)}}/>
+        return <CartContainer boardgames={this.state.boardgames} cart={this.state.cart} addToCart={(id) => {this.addToCart(id)}} subtractFromCart={(id) => {this.subtractFromCart(id)}} removeFromCart={(id) => {this.removeFromCart(id)}}/>
       }} />
     </div>
      );
