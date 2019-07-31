@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Api from '../../services/api'
 import {withRouter} from 'react-router-dom';
+import Submit from './images/submit.png'
 class Payment extends Component {
     constructor(props){
         super(props)
@@ -44,13 +45,14 @@ class Payment extends Component {
 
         return (
         <div>
-            <h3>Payment Info</h3>
+            <h3>Payment Info.</h3>
             <span>Payment Method</span>
             <form onSubmit={(e)=>{this.handleCheckout(e)}}>
                 Name on Card: <input onChange={(e) => this.handleNameChange(e)} value={this.state.name} />
                 Card Number: <input onChange={(e) => this.handleCardChange(e)} value={this.state.cardNumber} />
-            <input type='submit' value='checkout' />
+              <input type='submit' value='checkout' />
         </form>
+        <img src={Submit} />
         </div>
         );
     }

@@ -17,7 +17,6 @@ export default class Cart extends Component {
              <span>${boardgame.price * boardgame.quantity}</span>
            </p>
            <button id='x' onClick={()=> this.props.removeFromCart(boardgame.id)}>X</button>
-           <hr/>
          </div>
          );
     }
