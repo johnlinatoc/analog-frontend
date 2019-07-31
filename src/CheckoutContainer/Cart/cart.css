@@ -238,3 +238,18 @@ color: #FFFFFF;
 .card {
   height: 2rem;
 }
+
+/* ============ Success Page =============== */
+.success-container {
+  display: flex;
+  justify-content: center;
+}
+
+.success-container h1{
+  font-family: lato;
+  position: relative;
+  top: 2em;
+  font-size: 4rem;
+  border: black solid 2px;
+  padding: 3rem 5rem;
+}
