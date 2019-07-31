@@ -6,7 +6,7 @@
   display: inline-block;
   position: relative;
   margin-bottom: 40px;
-  box-shadow: 2px 4px 5px 0px #DCDCDC;
+  box-shadow: 0 0 20px 0px #DCDCDC;
 }
 
 .title-container {
@@ -49,13 +49,21 @@
 
 .total-container {
   width: 243px;
-  height: 114px;
+  height: 111px;
   float: right;
-
+  bottom: 17px;
+  right: 18px;
+  position: relative;
 }
 
 .total-container img {
   padding-top: 70px;
+}
+
+.total-container p {
+  left: 7px;
+  top: -3px;
+  position: relative;
 }
 
 .continue-button {
@@ -125,7 +133,7 @@ hr#top {
 }
 hr {
   width: 96%;
-  left: 9px;
+  left: 11px;
   position: absolute;
   margin-top: -20px;
   border-color: white;

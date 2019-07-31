@@ -32,7 +32,7 @@ export default class CartContainer extends Component {
                 <div className='total-container'>
                   <img src={Line} />
                   <p>
-                    <span>Total: ${totalCost}</span>
+                    <span><strong>Total:</strong> ${totalCost}</span>
                   </p>
                 </div>
               </div>
