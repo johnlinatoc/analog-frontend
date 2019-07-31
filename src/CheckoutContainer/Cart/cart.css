@@ -1,9 +1,12 @@
 .cart-container {
   width: 730px;
   height: 600px;
-  margin-top: 120px;
-  margin-left: 130px;
+  margin-top: 50px;
+  margin-left: 96px;
   border: solid 1px black;
+  display: inline-block;
+  position: relative;
+  margin-bottom: 40px;
 }
 
 .title-container {
@@ -16,6 +19,13 @@
   width: 730px;
   height: 360px;
   border: solid 1px black;
+}
+
+.header-container{
+  display: flex;
+  justify-content: left;
+  border: solid 1px black;
+  margin: 0
 }
 
 .total-container {
@@ -38,4 +48,18 @@
 
 .continue-button img {
   width: 100%
+}
+/* ==========Payment==========*/
+
+.payment-container {
+  width: 360px;
+  height: 644px;
+  margin-top: 40px;
+  display: inline-block;
+  float: right;
+  right: 30px;
+  position: relative;
+  border: 1px solid black;
+  /* padding: 2rem */
+  /* margin-bottom: 12px; */
 }

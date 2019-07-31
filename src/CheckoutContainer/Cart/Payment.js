@@ -25,7 +25,7 @@ class Payment extends Component {
     this.setState({
         cardNumber: e.target.value
     })
-    }  
+    }
 
     handleCheckout(e){
         e.preventDefault()
@@ -40,9 +40,9 @@ class Payment extends Component {
 
 
 
-    render() { 
+    render() {
 
-        return ( 
+        return (
         <div>
             <h3>Payment Info</h3>
             <span>Payment Method</span>
