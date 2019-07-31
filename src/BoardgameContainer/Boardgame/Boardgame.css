@@ -61,6 +61,10 @@
   opacity: 0;
 }
 
+.page-back:hover, .page-forward:hover {
+  cursor: pointer;
+}
+
 .info-container{
   text-align: center;
 }
