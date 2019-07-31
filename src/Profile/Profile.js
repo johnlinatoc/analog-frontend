@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import {Link, withRouter, Redirect} from 'react-router-dom';
 import Api from '../services/api'
+import '../UserStatus/user_status.css'
+
 class Profile extends Component {
     constructor(props){
         super(props)
@@ -55,10 +57,10 @@ class Profile extends Component {
     render(){
       console.log(this.props.user)
     return(
-      <div>
+      <div className='form-container'>
         <h3>Username: {this.props.user.user.username}</h3>
-        <form onSubmit={(e)=>{this.handleUsernameUpdate(e)}}>
-          <input onChange={(e) => this.handleUsernameChange(e)} value={this.state.username} />
+        <form className='profile-update' onSubmit={(e)=>{this.handleUsernameUpdate(e)}}>
+          <input  onChange={(e) => this.handleUsernameChange(e)} value={this.state.username} />
           <input type='submit' value='Update Username' />
         </form>
         <input type='button' value='Delete Username' onClick={() => this.handleUserDelete()}/>

@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import BoardgameCard from './Boardgame/BoardgameCard'
 import arrows from './images/arrow.png'
 import './Boardgame/Boardgame.css'
+import sidebar from './images/Sidebar.png'
 
 
 export default class BoardgameContainer extends Component {
