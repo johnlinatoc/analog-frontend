@@ -8,37 +8,37 @@ class Navigation extends Component {
 
     render(){
     return(
-      <div>
+      <div className="navigation-wrap">
         <div className="navigation">
-          <Link to="/" >
-            <div >Home</div>
+          <Link to="/" className="nav-link-text">
+            <div className="nav-link"><p >Home</p></div>
           </Link>
-          <Link to="#" >
-            <div >Boardgames</div>
+          <Link to="#" className="nav-link-text">
+            <div className="nav-link"><p>Boardgames</p></div>
           </Link>
-          <Link to="#" >
-            <div >New Arrivals</div>
+          <Link to="#" className="nav-link-text">
+            <div className="nav-link"><p>New Arrivals</p></div>
           </Link>
-          <Link to="#" >
-            <div >Accessories</div>
+          <Link to="#" className="nav-link-text">
+            <div className="nav-link">Accessories</div>
           </Link>
-          <Link to="#" >
-            <div >Contact</div>
+          <Link to="#" className="nav-link-text">
+            <div className="nav-link"><p>Contact</p></div>
           </Link>
           {this.props.auth.user.id ?
             <a onClick={() => {
               this.props.handleLogout()
               this.props.history.push('/')
             }}>
-            <div >Log out</div>
+            <div className="nav-link"><p>Log out</p></div>
           </a>
           :
-          <Link to="/login" >
-            <div >Sign In</div>
+          <Link to="/login" className="nav-link-text">
+            <div className="nav-link"><p>Sign In</p></div>
           </Link>
         }
         </div>
-        <div>
+        <div className="nav-buttons">
         <Link to="/cart" >
           <img className="cart" src={cart} style={{width: '30px'}}/>
         </Link>
