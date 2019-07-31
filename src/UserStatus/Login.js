@@ -1,6 +1,7 @@
 import React from 'react';
 import Api from '../services/api'
 import {Link} from 'react-router-dom';
+import './user_status.css'
 class Login extends React.Component {
   constructor(props){
     super(props)
@@ -39,11 +40,11 @@ class Login extends React.Component {
 
   render(){
     return (
-      <div>
+      <div className='form-container'>
         {this.state.error ? <h4>Invalid username or Password</h4> : null}
         <form onSubmit={(e)=>{this.handleLogin(e)}}>
-          Username: <input onChange={(e) => this.handleUsernameChange(e)} value={this.state.username} />
-          Password: <input type="password" onChange={(e) => this.handlePasswordChange(e)} value={this.state.password} />
+          Username <input onChange={(e) => this.handleUsernameChange(e)} value={this.state.username} />
+          Password <input type="password" onChange={(e) => this.handlePasswordChange(e)} value={this.state.password} />
           <input type='submit' value='login' />
         </form>
         <h2>Create a New Account?</h2>
