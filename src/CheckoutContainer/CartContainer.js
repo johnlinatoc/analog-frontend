@@ -4,6 +4,8 @@ import Payment from './Cart/Payment'
 import './Cart/cart.css'
 import Button from './Cart/images/continue.png'
 import Line from './Cart/images/line.png'
+import {Link} from 'react-router-dom';
+
 export default class CartContainer extends Component {
 
     render() {
@@ -26,9 +28,11 @@ export default class CartContainer extends Component {
                     return <Cart boardgame={boardgame} addToCart={this.props.addToCart} subtractFromCart={this.props.subtractFromCart} removeFromCart={this.props.removeFromCart} totalCost={totalCost}/>
                   })}
                 </div>
-                <div className='continue-button'>
-                  <img src={Button}/>
-                </div>
+                <Link to='/'>
+                  <div className='continue-button'>
+                    <img src={Button}/>
+                  </div>
+                </Link>
                 <div className='total-container'>
                   <img src={Line} />
                   <p>
