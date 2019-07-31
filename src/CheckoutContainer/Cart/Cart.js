@@ -7,16 +7,17 @@ export default class Cart extends Component {
 
       const {boardgame} = this.props
         return (
-        <div>
-            <img src={boardgame.image}/>
-            <h3>Name: {boardgame.name}</h3>
-            <p>Quantity: {boardgame.quantity}</p>
-             <p>
-                <span>Price: {boardgame.price * boardgame.quantity}</span>
-             </p>
-             <button onClick={()=> this.props.subtractFromCart(boardgame.id)}>-</button>
-             <button onClick={()=> this.props.addToCart(boardgame.id)}>+</button>
-             <button onClick={()=> this.props.removeFromCart(boardgame.id)}>X</button>
+        <div className='cart-item'>
+           <img className='cart-img' src={boardgame.image}/>
+           <h3 className='cart-name'>{boardgame.name}</h3>
+           <button onClick={()=> this.props.subtractFromCart(boardgame.id)}>-</button>
+           <p className='cart-qty'>{boardgame.quantity}</p>
+           <button onClick={()=> this.props.addToCart(boardgame.id)}>+</button>
+           <p className='cart-price'>
+             <span>${boardgame.price * boardgame.quantity}</span>
+           </p>
+           <button id='x' onClick={()=> this.props.removeFromCart(boardgame.id)}>X</button>
+           <hr/>
          </div>
          );
     }

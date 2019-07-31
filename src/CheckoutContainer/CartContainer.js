@@ -16,10 +16,11 @@ export default class CartContainer extends Component {
                 <div className='bag-container'>
                   <div>
                     <ul className='header-container'>
-                      <li>Boardgame</li>
-                      <li>Quantity</li>
-                      <li>Price</li>
+                      <li className='header-name a'>Boardgame</li>
+                      <li className='header-name b'>Quantity</li>
+                      <li className='header-name c'>Price</li>
                     </ul>
+                    <hr id='top'/>
                   </div>
                   {cartItems.map( boardgame => {
                     return <Cart boardgame={boardgame} addToCart={this.props.addToCart} subtractFromCart={this.props.subtractFromCart} removeFromCart={this.props.removeFromCart} totalCost={totalCost}/>
@@ -31,7 +32,7 @@ export default class CartContainer extends Component {
                 <div className='total-container'>
                   <img src={Line} />
                   <p>
-                    <span>Total Cost: {totalCost}</span>
+                    <span>Total: ${totalCost}</span>
                   </p>
                 </div>
               </div>
