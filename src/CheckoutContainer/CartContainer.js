@@ -13,14 +13,14 @@ export default class CartContainer extends Component {
             <div>
               <div className='cart-container'>
                 <h1 className='title-container'>Shopping Cart</h1>
-                <div>
-                  <ul className='header-container'>
-                    <li>Boardgame</li>
-                    <li>Quantity</li>
-                    <li>Price</li>
-                  </ul>
-                </div>
                 <div className='bag-container'>
+                  <div>
+                    <ul className='header-container'>
+                      <li>Boardgame</li>
+                      <li>Quantity</li>
+                      <li>Price</li>
+                    </ul>
+                  </div>
                   {cartItems.map( boardgame => {
                     return <Cart boardgame={boardgame} addToCart={this.props.addToCart} subtractFromCart={this.props.subtractFromCart} removeFromCart={this.props.removeFromCart} totalCost={totalCost}/>
                   })}
@@ -35,8 +35,9 @@ export default class CartContainer extends Component {
                   </p>
                 </div>
               </div>
-              <button onClick={()=> this.props.checkout()}>Checkout</button>
+              <div className='payment-container'>
                 <Payment/>
+              </div>
             </div>
          );
     }
