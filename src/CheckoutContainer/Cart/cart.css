@@ -76,6 +76,10 @@
   position: relative;
 }
 
+.continue-button:hover {
+  cursor: pointer;
+}
+
 .continue-button img {
   width: 100%;
   position: relative;
