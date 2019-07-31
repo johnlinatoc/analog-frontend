@@ -81,9 +81,6 @@ class App extends Component {
     })
   }
 
-  checkout = () =>{
-    console.log("Checking Out")
-  }
   render() { 
     return ( 
     <div>
@@ -99,7 +96,7 @@ class App extends Component {
         handleLogin={(user) => {this.handleLogin(user)}}/>
       }} />
       <Route exact path="/" render={() => {
-        return <div>
+        return <div >
             <HeaderWidget />
             <BoardgameContainer boardgames={this.state.boardgames} addToCart={(id) => {this.addToCart(id)}}/>
           </div>
