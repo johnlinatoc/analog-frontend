@@ -1,13 +1,8 @@
 .boardgame_container {
-  float: right;
-  margin-top: 70.5px;
-  margin-right: 115px;
-  width: 870px;
-  height: 1338px;
-  left: 415px;
-  top: 810px;
-  display: flex;
-  flex-wrap: wrap;
+
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+
   }
 
 .boardgame_card {
