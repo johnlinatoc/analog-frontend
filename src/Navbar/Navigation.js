@@ -13,18 +13,6 @@ class Navigation extends Component {
           <Link to="/" >
             <div >Home</div>
           </Link>
-          <Link to="#" >
-            <div >Boardgames</div>
-          </Link>
-          <Link to="#" >
-            <div >New Arrivals</div>
-          </Link>
-          <Link to="#" >
-            <div >Accessories</div>
-          </Link>
-          <Link to="#" >
-            <div >Contact</div>
-          </Link>
           {this.props.auth.user.id ?
             <a onClick={() => {
               this.props.handleLogout()
