@@ -31,11 +31,6 @@ class Profile extends Component {
       }
     }
 
-
-
-
-
-
     handleUsernameChange(e){
         this.setState({
             username: e.target.value

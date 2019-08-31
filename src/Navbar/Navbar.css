@@ -5,22 +5,26 @@
   font-weight: 600;
   font-size: 13px;
   color: #525252;
-  border: solid;
+  height: 6em;
+  box-shadow: 0 0 10px 2px lightgrey;
 }
 
 .navbar a{
-  margin-right: 3%;
+  margin-right: 8%;
 }
 
 .logo-container {
   left: 4%;
-  top: 10%;
+  top: 2%;
   width: 12%;
   position: inherit;
   display: inline-flex;
 }
 .logo-container a{
   text-decoration: none;
+  height: 4em;
+  width: 100%;
+  position: relative;
 }
 
 .title {
@@ -40,12 +44,11 @@
 .navigation-container{
   display: inline-flex;
   width: 39%;
-  border: solid;
   float: right;
   justify-content: flex-end;
-  position: relative;
-  margin-top: 1%;
-
+  position: inherit;
+  top: 3%;
+  right: 3%;
 }
 
 .navigation {
@@ -57,9 +60,10 @@
   display: inline-flex;
   justify-content: flex-end;
   color: #525252;
-  border: solid;
   position: inherit;
   float: right;
+  margin-right: 6%;
+  margin-top: 2%;
 }
 
 .cart {
@@ -78,6 +82,6 @@
 }
 
 .button-container{
-  border: solid;
-  width: 15%;
+  width: 10%;
+  margin-top: 1%;
 }
