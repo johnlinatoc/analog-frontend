@@ -1,19 +1,23 @@
 .navbar{
-  display: flex;
-  width: 100%;
-  height: 115px;
-  left: 0px;
-  top: 0px;
-  box-shadow: -16px -10px 15px black;
   position: sticky;
-  background: white
+  width: 100%;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 13px;
+  color: #525252;
+  border: solid;
+}
+
+.navbar a{
+  margin-right: 3%;
 }
 
 .logo-container {
-
-  left: 115px;
-  top: 27px;
-  position: relative;
+  left: 4%;
+  top: 10%;
+  width: 12%;
+  position: inherit;
+  display: inline-flex;
 }
 .logo-container a{
   text-decoration: none;
@@ -33,26 +37,32 @@
   width: 50.34px
 }
 
-.navigation {
+.navigation-container{
+  display: inline-flex;
+  width: 39%;
+  border: solid;
+  float: right;
+  justify-content: flex-end;
   position: relative;
-  width: 541px;
-  height: 15px;
-  /* font-family: Work Sans; */
+  margin-top: 1%;
+
+}
+
+.navigation {
+  width: 27%;
+  height: 0%;
   font-style: normal;
   font-weight: 600;
   font-size: 13px;
-  line-height: 15px;
-  display: flex;
-  justify-content: space-between;
-  /* flex-direction: row; */
-  text-align: right;
+  display: inline-flex;
+  justify-content: flex-end;
   color: #525252;
-  top: 52px;
-  left: 486px;
+  border: solid;
+  position: inherit;
+  float: right;
 }
 
 .cart {
-  position: absolute;
   width: 31px;
   height: 31px;
   left: 1215px;
@@ -61,9 +71,13 @@
 }
 
 .search {
-  position: absolute;
   width: 31px;
   height: 31px;
   left: 1254px;
   top: 42px;
+}
+
+.button-container{
+  border: solid;
+  width: 15%;
 }

@@ -1,13 +1,13 @@
 .boardgame_container {
-  float: right;
-  margin-top: 70.5px;
+  float: left;
+  margin-top: 3%;
   margin-right: 115px;
   width: 870px;
   height: 1338px;
-  left: 415px;
-  top: 810px;
+  left: 17%;
   display: flex;
   flex-wrap: wrap;
+  position: relative;
   }
 
 .boardgame_card {

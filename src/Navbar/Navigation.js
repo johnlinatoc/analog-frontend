@@ -8,7 +8,7 @@ class Navigation extends Component {
 
     render(){
     return(
-      <div>
+      <div className='navigation-container'>
         <div className="navigation">
           <Link to="/" >
             <div >Home</div>
@@ -26,7 +26,7 @@ class Navigation extends Component {
           </Link>
         }
         </div>
-        <div>
+        <div className='button-container'>
         <Link to="/cart" >
           <img className="cart" src={cart} style={{width: '30px'}}/>
         </Link>
