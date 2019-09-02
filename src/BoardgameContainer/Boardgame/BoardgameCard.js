@@ -15,7 +15,11 @@ export default class BoardgameCard extends Component {
             <h3>{boardgame.name}</h3>
             <span>${boardgame.price}</span>
             <br/><br/>
-            <button onClick={()=> this.props.addToCart(boardgame.id)}>Add to Cart</button>
+            <button
+            onClick={()=> {
+              this.props.addToCart(boardgame.id);
+              alert('Item added to Cart!');
+            }}>Add to Cart</button>
           </div>
         </div>
          );

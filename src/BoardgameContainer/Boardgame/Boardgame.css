@@ -10,7 +10,6 @@
   position: relative;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-
   }
 
 .boardgame_card {
@@ -29,7 +28,8 @@
 
 .boardgame_card .img-container {
   width: 100%;
-  height: 70%;
+  height: 66%;
+  overflow: hidden;
 }
 
 .boardgame_card img {
