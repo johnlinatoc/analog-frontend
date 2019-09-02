@@ -8,7 +8,7 @@ class Navigation extends Component {
 
     render(){
     return(
-      <div className="navigation-wrap">
+      <div className='navigation-container'>
         <div className="navigation">
           <Link to="/" className="nav-link-text">
             <div className="nav-link"><p >Home</p></div>
@@ -38,11 +38,10 @@ class Navigation extends Component {
           </Link>
         }
         </div>
-        <div className="nav-buttons">
+        <div className='button-container'>
         <Link to="/cart" >
           <img className="cart" src={cart} style={{width: '30px'}}/>
         </Link>
-          <img className="search" src={search} style={{width: '30px'}}/>
         </div>
       </div>
     )

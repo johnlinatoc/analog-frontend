@@ -1,5 +1,13 @@
 .boardgame_container {
-
+  float: left;
+  margin-top: 3%;
+  margin-right: 115px;
+  width: 870px;
+  height: 1338px;
+  left: 17%;
+  display: flex;
+  flex-wrap: wrap;
+  position: relative;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
 
