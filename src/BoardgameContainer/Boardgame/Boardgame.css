@@ -8,6 +8,8 @@
   display: flex;
   flex-wrap: wrap;
   position: relative;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
   }
 
 .boardgame_card {

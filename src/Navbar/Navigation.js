@@ -10,19 +10,19 @@ class Navigation extends Component {
     return(
       <div className='navigation-container'>
         <div className="navigation">
-          <Link to="/" >
-            <div >Home</div>
+          <Link to="/" className="nav-link-text">
+            <div className="nav-link"><p >Home</p></div>
           </Link>
           {this.props.auth.user.id ?
             <a onClick={() => {
               this.props.handleLogout()
               this.props.history.push('/')
             }}>
-            <div >Log out</div>
+            <div className="nav-link"><p>Log out</p></div>
           </a>
           :
-          <Link to="/login" >
-            <div >Sign In</div>
+          <Link to="/login" className="nav-link-text">
+            <div className="nav-link"><p>Sign In</p></div>
           </Link>
         }
         </div>

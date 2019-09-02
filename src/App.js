@@ -9,7 +9,7 @@ import Profile from './Profile/Profile'
 import CartContainer from './CheckoutContainer/CartContainer'
 import HeaderWidget from './HeaderContainer/HeaderWidget'
 import Success from './CheckoutContainer/Cart/Success'
-
+import Sidebar from './Sidebar.png'
 class App extends Component {
   constructor(props) {
     super(props);
@@ -83,7 +83,7 @@ class App extends Component {
 
   render() { 
     return ( 
-    <div>
+    <div className="wrapper">
       <Navbar auth={this.state.auth} handleLogout={()=> this.handleLogout()} cart={this.state.cart} boardgames={this.state.boardgames}/>
       
       <Route path="/login" render={(routeProps) => {
@@ -98,7 +98,12 @@ class App extends Component {
       <Route exact path="/" render={() => {
         return <div >
             <HeaderWidget />
+            <div className="body-container">
+              <div className="filter">
+                <img src={Sidebar} />
+              </div>
             <BoardgameContainer boardgames={this.state.boardgames} addToCart={(id) => {this.addToCart(id)}}/>
+            </div>
           </div>
       }} />
       <Route path="/signup" render={(routeProps) => {
