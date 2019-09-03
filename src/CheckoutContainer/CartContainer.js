@@ -4,9 +4,29 @@ import Payment from './Cart/Payment'
 import './Cart/cart.css'
 import Button from './Cart/images/continue.png'
 import Line from './Cart/images/line.png'
-import {Link} from 'react-router-dom';
+import { Link } from 'react-router-dom';
+import Api from '../services/api'
+import { withRouter } from 'react-router-dom';
+
 
 export default class CartContainer extends Component {
+
+  componentDidMount(){
+    const token = localStorage.getItem('token')
+    if(!token) {
+      // this.props.history.push('/login')
+    }
+    else {
+      Api.currentUser(token)
+        .then(data => {
+          if(data.error){
+            this.props.history.push('/login')
+          } else {
+            this.props.handleLogin(data)
+          }
+        })
+    }
+  }
 
     render() {
         const cartItems = this.props.cart

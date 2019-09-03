@@ -81,11 +81,15 @@ class App extends Component {
     })
   }
 
-  render() { 
-    return ( 
+  render() {
+    return (
     <div>
-      <Navbar auth={this.state.auth} handleLogout={()=> this.handleLogout()} cart={this.state.cart} boardgames={this.state.boardgames}/>
-      
+      <Navbar auth={this.state.auth}
+      handleLogout={()=> this.handleLogout()}
+      cart={this.state.cart}
+      user={this.state.auth}
+      boardgames={this.state.boardgames}/>
+
       <Route path="/login" render={(routeProps) => {
         return <Login {...routeProps}
         handleLogin={(user) => {this.handleLogin(user)}}/>
@@ -98,7 +102,10 @@ class App extends Component {
       <Route exact path="/" render={() => {
         return <div >
             <HeaderWidget />
-            <BoardgameContainer boardgames={this.state.boardgames} addToCart={(id) => {this.addToCart(id)}}/>
+            <BoardgameContainer
+            boardgames={this.state.boardgames}
+            addToCart={(id) => {this.addToCart(id)}}
+            handleLogin={(user) => {this.handleLogin(user)}}/>
           </div>
       }} />
       <Route path="/signup" render={(routeProps) => {
@@ -106,8 +113,14 @@ class App extends Component {
         handleLogin={(user) => {this.handleLogin(user)}}/>
       }} />
       <Route path="/cart" render={(routeProps) => {
-        return <CartContainer boardgames={this.state.boardgames} cart={this.state.cart} addToCart={(id) => {this.addToCart(id)}} subtractFromCart={(id) => {this.subtractFromCart(id)}} removeFromCart={(id) => {this.removeFromCart(id)}}
-        checkout={this.checkout} {...routeProps}/>
+        return <CartContainer
+        boardgames={this.state.boardgames}
+        cart={this.state.cart}
+        addToCart={(id) => {this.addToCart(id)}}
+        subtractFromCart={(id) => {this.subtractFromCart(id)}}
+        removeFromCart={(id) => {this.removeFromCart(id)}}
+        checkout={this.checkout} {...routeProps}
+        handleLogin={(user) => {this.handleLogin(user)}}/>
       }} />
       <Route path="/success" render={() => {
         return <Success />

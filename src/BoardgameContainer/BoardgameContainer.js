@@ -1,17 +1,34 @@
 import React, { Component } from 'react';
-import BoardgameCard from './Boardgame/BoardgameCard'
-import arrows from './images/arrow.png'
-import './Boardgame/Boardgame.css'
-import sidebar from './images/Sidebar.png'
+import BoardgameCard from './Boardgame/BoardgameCard';
+import arrows from './images/arrow.png';
+import './Boardgame/Boardgame.css';
+import sidebar from './images/Sidebar.png';
+import Api from '../services/api';
+import { withRouter } from 'react-router-dom';
 
 
-export default class BoardgameContainer extends Component {
+class BoardgameContainer extends Component {
   constructor(props){
     super(props)
     this.state = {
       page: 0,
-      // boardgames: this.props.boardgames,
-      lastNineBoardgames: [],
+    }
+  }
+
+  componentDidMount(){
+    const token = localStorage.getItem('token')
+    if(!token) {
+      // this.props.history.push('/login')
+    }
+    else {
+      Api.currentUser(token)
+        .then(data => {
+          if(data.error){
+            this.props.history.push('/login')
+          } else {
+            this.props.handleLogin(data)
+          }
+        })
     }
   }
 
@@ -55,3 +72,5 @@ export default class BoardgameContainer extends Component {
        );
   }
 }
+
+export default withRouter(BoardgameContainer)

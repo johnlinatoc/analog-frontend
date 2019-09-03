@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import Navigation from './Navigation'
 import Logo from './Logo'
+import Profile from '../Profile/Profile.js'
 
 
 class Navbar extends Component {

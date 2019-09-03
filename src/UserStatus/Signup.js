@@ -31,6 +31,7 @@ class Signup extends React.Component {
           this.setState({
             error: true
           })
+          console.log(data.error)
         } else {
           this.props.handleLogin(data)
           this.props.history.push(`/profile`)

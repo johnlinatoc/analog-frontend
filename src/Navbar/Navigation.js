@@ -14,12 +14,17 @@ class Navigation extends Component {
             <div >Home</div>
           </Link>
           {this.props.auth.user.id ?
+            <div className='sub-navigation'>
+            <Link to="/profile">
+              <div>Profile</div>
+            </Link>
             <a onClick={() => {
               this.props.handleLogout()
               this.props.history.push('/')
             }}>
             <div >Log out</div>
           </a>
+          </div>
           :
           <Link to="/login" >
             <div >Sign In</div>

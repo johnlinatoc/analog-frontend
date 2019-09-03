@@ -21,7 +21,6 @@ class Profile extends Component {
       else {
         Api.currentUser(token)
           .then(data => {
-
             if(data.error){
               this.props.history.push('/login')
             } else {
