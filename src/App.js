@@ -122,7 +122,9 @@ class App extends Component {
         handleLogin={(user) => {this.handleLogin(user)}}/>
       }} />
       <Route path="/success" render={() => {
-        return <Success boardgames={this.state.cart}/>
+        return <Success
+        boardgames={this.state.cart}
+        handleLogin={(user) => {this.handleLogin(user)}}/>
       }} />
     </div>
      );
