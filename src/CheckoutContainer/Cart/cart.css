@@ -147,8 +147,8 @@ hr {
 
 .payment-container {
   width: 360px;
-  height: 644px;
-  margin-top: 40px;
+  height: 8%;
+  margin-top: 11%;
   display: inline-block;
   float: right;
   right: 30px;
@@ -158,9 +158,8 @@ hr {
   border-top-right-radius: 3%;
   border-bottom-left-radius: 3%;
   border-bottom-right-radius: 3%;
-  background: #0F2027;  /* fallback for old browsers */
-  background: -webkit-linear-gradient(120deg, #2C5364, #203A43, #0F2027);  /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(189deg, #2C5364, #203A43, #0F2027); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  background: #0F2027;
+  background: linear-gradient(189deg, #2C5364, #203A43, #0F2027);
 }
 
 .payment-container h3 {
@@ -179,7 +178,6 @@ font-style: normal;
 font-weight: bold;
 font-size: 12px;
 line-height: 24px;
-/* identical to box height, or 200% */
 letter-spacing: 0.2px;
 color: #FFFFFF;
 }
@@ -189,14 +187,12 @@ color: #FFFFFF;
   font-weight: bold;
   font-size: 1rem;
   line-height: 24px;
-  /* identical to box height, or 200% */
   letter-spacing: 0.2px;
   color: #FFFFFF;
-
   display: flex;
   flex-direction: column;
   position: relative;
-  top: 10rem;
+  top: -2rem;
   left: 18px;
   width: 90%;
   text-align: center;

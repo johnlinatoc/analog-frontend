@@ -70,11 +70,10 @@ class App extends Component {
 
 
   removeFromCart = (boardgameId) => {
+    console.log(boardgameId)
     let activeCart = this.state.cart
     const filteredCart = activeCart.filter(boardgame => {
-      if (!boardgame.id == boardgameId){
-        return boardgame
-      }
+        return boardgame.id !== boardgameId
     })
     this.setState({
       cart: filteredCart

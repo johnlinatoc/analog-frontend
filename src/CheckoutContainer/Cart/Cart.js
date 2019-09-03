@@ -14,7 +14,7 @@ export default class Cart extends Component {
            <p className='cart-qty'>{boardgame.quantity}</p>
            <button onClick={()=> this.props.addToCart(boardgame.id)}>+</button>
            <p className='cart-price'>
-             <span>${boardgame.price * boardgame.quantity}</span>
+             <span>${Number.parseFloat(boardgame.price).toFixed(2) * boardgame.quantity}</span>
            </p>
            <button id='x' onClick={()=> this.props.removeFromCart(boardgame.id)}>X</button>
          </div>

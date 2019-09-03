@@ -56,7 +56,7 @@ export default class CartContainer extends Component {
                 <div className='total-container'>
                   <img src={Line} />
                   <p>
-                    <span><strong>Total:</strong> ${totalCost}</span>
+                    <span><strong>Total:</strong> ${Number.parseFloat(totalCost).toFixed(2)}</span>
                   </p>
                 </div>
               </div>
