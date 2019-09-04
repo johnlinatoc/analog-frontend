@@ -29,7 +29,7 @@ class Success extends React.Component {
     const { boardgames } = this.props
 
     return boardgames.map( boardgame => {
-      return boardgame.name
+      return <h3>{boardgame.name}</h3>
     })
   }
 
@@ -38,7 +38,7 @@ class Success extends React.Component {
         <div className='success-container'>
           <h1>Your boardgames are on the way!</h1>
           <p>Purchased:</p>
-          <h3>{this.renderBoardgames()}</h3>
+          {this.renderBoardgames()}
           <Link to="/">
             <div className='continue-button'>
               <img src={Button}/>

@@ -236,10 +236,10 @@ color: #FFFFFF;
 }
 
 /* ============ Success Page =============== */
-/* .success-container {
-  display: flex;
-  justify-content: center;
-} */
+.success-container {
+  margin-top: 4%;
+  margin-left: 4%;
+}
 
 /* .success-container h1{
   font-family: lato;
